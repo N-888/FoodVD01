@@ -2,85 +2,160 @@
 <html lang="ru"> <!-- Начало HTML-документа с указанием языка -->
 <head> <!-- Секция с метаданными и заголовком -->
     <meta charset="UTF-8"> <!-- Указание кодировки символов -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Для адаптивности на мобильных устройствах -->
     <title>Рейтинг блюд</title> <!-- Заголовок страницы в браузере -->
     <style> <!-- Стили для оформления таблицы -->
+        * {
+            box-sizing: border-box; /* Учитываем границы в общей ширине */
+        }
+
+        body {
+            margin: 0; /* Убираем отступы по умолчанию */
+            padding: 20px; /* Добавляем отступы вокруг содержимого */
+            font-family: Arial, sans-serif; /* Шрифт для всей страницы */
+            background-color: #f5f5f5; /* Светлый фон страницы */
+        }
+
+        .container {
+            max-width: 1200px; /* Максимальная ширина контента */
+            margin: 0 auto; /* Центрирование контейнера */
+        }
+
+        h1 {
+            text-align: center; /* Центрирование заголовка */
+            margin: 20px 0; /* Отступы сверху и снизу */
+            padding: 15px; /* Внутренние отступы */
+            background-color: white; /* Белый фон заголовка */
+            border-radius: 8px; /* Закругленные углы */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Тень вокруг заголовка */
+            font-size: clamp(1.5rem, 4vw, 2.5rem); /* Адаптивный размер шрифта */
+        }
+
         table {
-            width: 80%; /* Ширина таблицы */
+            width: 100%; /* Таблица занимает всю доступную ширину */
             border-collapse: collapse; /* Объединение границ ячеек */
             margin: 20px auto; /* Выравнивание по центру с отступом */
+            background-color: white; /* Белый фон таблицы */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Тень вокруг таблицы */
+            min-width: 600px; /* Минимальная ширина таблицы */
         }
+
         th, td {
             border: 1px solid #ddd; /* Границы ячеек */
             padding: 12px; /* Внутренние отступы */
             text-align: left; /* Выравнивание текста по левому краю */
         }
+
         th {
             background-color: #f2f2f2; /* Цвет фона заголовков */
+            font-weight: bold; /* Жирный шрифт для заголовков */
         }
+
         img {
             max-width: 150px; /* Максимальная ширина изображений */
+            width: 100%; /* Ширина 100% от доступного пространства */
             height: auto; /* Автоматическая высота */
+            display: block; /* Блочное отображение */
+            margin: 0 auto; /* Центрирование изображения */
+        }
+
+        /* Стили для улучшения читаемости */
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Чередующийся цвет строк */
+        }
+
+        tr:hover {
+            background-color: #f1f1f1; /* Цвет строки при наведении */
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px; /* Уменьшаем отступы на мобильных */
+            }
+
+            th, td {
+                padding: 8px; /* Уменьшаем отступы в ячейках */
+                font-size: 0.9em; /* Немного уменьшаем шрифт */
+            }
+
+            img {
+                max-width: 120px; /* Уменьшаем изображения на мобильных */
+            }
+        }
+
+        @media (max-width: 480px) {
+            th, td {
+                padding: 6px; /* Еще меньше отступов на очень маленьких экранах */
+            }
+
+            img {
+                max-width: 100px; /* Минимальный размер изображений */
+            }
         }
     </style>
 </head>
 <body> <!-- Тело документа -->
-    <h1 style="text-align: center;">Рейтинг ЛЮБИМЫХ / НЕЛЮБИМЫХ блюд</h1> <!-- Заголовок таблицы -->
-    <table> <!-- Начало таблицы -->
-        <thead> <!-- Заголовок таблицы -->
-            <tr> <!-- Строка заголовков -->
-                <th>Блюдо</th> <!-- Столбец 1: Название и описание -->
-                <th>Оценка</th> <!-- Столбец 2: Оценка -->
-                <th>Рецепт</th> <!-- Столбец 3: Ссылка на рецепт -->
-                <th>Фото</th> <!-- Столбец 4: Изображение -->
-            </tr>
-        </thead>
-        <tbody> <!-- Тело таблицы с данными -->
-            <tr> <!-- Строка 1 -->
-                <td> <!-- Ячейка с названием и описанием -->
-                    <strong>Щи</strong><br> <!-- Название блюда -->
-                    <em>Холодные зеленые</em> <!-- Краткое описание -->
-                </td>
-                <td>8/10</td> <!-- Оценка -->
-                <td><a href="https://www.russianfood.com/recipes/recipe.php?rid=139853" target="_blank">Рецепт</a></td> <!-- Ссылка -->
-                <td><img src="https://img.freepik.com/free-photo/borscht-in-a-bowl-with-sour-cream-and-dill_123827-20836.jpg" alt="Борщ"></td> <!-- Фото -->
-            </tr>
-            <tr> <!-- Строка 2 -->
-                <td>
-                    <strong>Паста Карбонара</strong><br>
-                    <em>Сливочная паста</em>
-                </td>
-                <td>9/10</td>
-                <td><a href="https://www.allrecipes.com/recipe/245775/spaghetti-alla-carbonara/" target="_blank">Рецепт</a></td>
-                <td><img src="https://img.freepik.com/free-photo/spaghetti-carbonara-with-bacon-and-cheese_1220-6903.jpg" alt="Паста Карбонара"></td>
-            </tr>
-            <tr> <!-- Строка 3 -->
-                <td>
-                    <strong>Салат Цезарь</strong><br>
-                    <em>Куриный салат</em>
-                </td>
-                <td>7/10</td>
-                <td><a href="https://www.foodnetwork.com/recipes/classic-caesar-salad-recipe-2041424" target="_blank">Рецепт</a></td>
-                <td><img src="https://img.freepik.com/free-photo/caesar-salad-with-grilled-chicken-and-croutons_1220-6842.jpg" alt="Салат Цезарь"></td>
-            </tr>
-            <tr> <!-- Строка 4 -->
-                <td>
-                    <strong>Тирамису</strong><br>
-                    <em>Кофейный десерт</em>
-                </td>
-                <td>9/10</td>
-                <td><a href="https://www.bbcgoodfood.com/recipes/tiramisu" target="_blank">Рецепт</a></td>
-                <td><img src="https://img.freepik.com/free-photo/tiramisu-cake-with-cocoa-powder-and-mint-leaves_1220-6806.jpg" alt="Тирамису"></td>
-            </tr>
-            <tr> <!-- Строка 5 -->
-                <td>
-                    <strong>Винегрет "Кубик Рубика"</strong><br>
-                    <em>С крабовыми палочками</em>
-                </td>
-                <td>6/10</td>
-                <td><a href="https://www.russianfood.com/recipes/recipe.php?rid=143165" target="_blank">Рецепт</a></td>
-                <td><img src="https://www.russianfood.com/dycontent/images_upl/221/sm_220908.jpg" alt="Винегрет "Кубик Рубика""></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container"> <!-- Контейнер для центрирования содержимого -->
+        <h1>Рейтинг ЛЮБИМЫХ / НЕЛЮБИМЫХ блюд</h1> <!-- Заголовок таблицы -->
+
+        <table> <!-- Начало таблицы -->
+            <thead> <!-- Заголовок таблицы -->
+                <tr> <!-- Строка заголовков -->
+                    <th>Блюдо</th> <!-- Столбец 1: Название и описание -->
+                    <th>Оценка</th> <!-- Столбец 2: Оценка -->
+                    <th>Рецепт</th> <!-- Столбец 3: Ссылка на рецепт -->
+                    <th>Фото</th> <!-- Столбец 4: Изображение -->
+                </tr>
+            </thead>
+            <tbody> <!-- Тело таблицы с данными -->
+                <tr> <!-- Строка 1 -->
+                    <td> <!-- Ячейка с названием и описанием -->
+                        <strong>Щи</strong><br> <!-- Название блюда -->
+                        <em>Холодные зеленые</em> <!-- Краткое описание -->
+                    </td>
+                    <td>6/10</td> <!-- Оценка -->
+                    <td><a href="https://www.russianfood.com/recipes/recipe.php?rid=139853" target="_blank">Рецепт</a></td> <!-- Ссылка -->
+                    <td><img src="https://www.russianfood.com/dycontent/images_upl/186/big_185498.jpg" alt="Щи холодные зеленые"></td> <!-- Фото -->
+                </tr>
+                <tr> <!-- Строка 2 -->
+                    <td>
+                        <strong>Паста Карбонара</strong><br>
+                        <em>Классическая</em>
+                    </td>
+                    <td>7/10</td>
+                    <td><a href="https://www.russianfood.com/recipes/recipe.php?rid=156341" target="_blank">Рецепт</a></td>
+                    <td><img src="https://www.russianfood.com/dycontent/images_upl/418/big_417108.jpg" alt="Паста Карбонара классическая"></td>
+                </tr>
+                <tr> <!-- Строка 3 -->
+                    <td>
+                        <strong>Крошка-Картошка</strong><br>
+                        <em>С ветчиной и сыром</em>
+                    </td>
+                    <td>8/10</td>
+                    <td><a href="https://www.russianfood.com/recipes/recipe.php?rid=173855" target="_blank">Рецепт</a></td>
+                    <td><img src="https://www.russianfood.com/dycontent/images_upl/739/big_738559.jpg" alt="Крошка-Картошка с ветчиной и сыром"></td>
+                </tr> <!-- Закрывающий тег для строки 3 -->
+                <tr> <!-- Строка 4 -->
+                    <td>
+                        <strong>Тирамису</strong><br>
+                        <em>Классический</em>
+                    </td>
+                    <td>9/10</td>
+                    <td><a href="https://www.russianfood.com/recipes/recipe.php?rid=146805" target="_blank">Рецепт</a></td>
+                    <td><img src="https://www.russianfood.com/dycontent/images_upl/269/big_268032.jpg" alt="Тирамису классический"></td>
+                </tr>
+                <tr> <!-- Строка 5 -->
+                    <td>
+                        <strong>Винегрет "Кубик Рубика"</strong><br>
+                        <em>С крабовыми палочками</em>
+                    </td>
+                    <td>5/10</td>
+                    <td><a href="https://www.russianfood.com/recipes/recipe.php?rid=143165" target="_blank">Рецепт</a></td>
+                    <td><img src="https://www.russianfood.com/dycontent/images_upl/221/sm_220908.jpg" alt='Винегрет "Кубик Рубика"'></td> <!-- Исправлены кавычки в alt -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
